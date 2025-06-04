@@ -21,6 +21,54 @@ interface Props {
 	</head>
 	<body class="text-white bg-white dark:bg-black min-h-screen">
 		<slot />
+
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				const nav = document.getElementById('navbar');
+				const scrollThreshold = 50;
+				
+				window.addEventListener('scroll', function() {
+					if (window.scrollY > scrollThreshold) {
+						nav.classList.add('bg-gray-900/80', 'backdrop-blur-sm');
+						nav.classList.remove('bg-transparent', 'backdrop-blur-none');
+					} else {
+						nav.classList.remove('bg-gray-900/80', 'backdrop-blur-sm');
+						nav.classList.add('bg-transparent', 'backdrop-blur-none');
+					}
+				});
+
+
+				
+				const mobileMenuButton = document.getElementById('mobile-menu-button');
+				const mobileMenu = document.getElementById('mobile-menu');
+				const menuIcon = document.getElementById('menu-icon');
+				const closeIcon = document.getElementById('close-icon');
+				
+				mobileMenuButton.addEventListener('click', function() {
+					const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+					if(!isExpanded){
+						mobileMenu?.classList.add('bg-gray-900/80', 'backdrop-blur-sm');
+					}
+
+					mobileMenu.classList.toggle('hidden');
+					menuIcon.classList.toggle('hidden');
+					closeIcon.classList.toggle('hidden');
+					
+					this.setAttribute('aria-expanded', !isExpanded);
+				});
+				
+				const menuLinks = mobileMenu.querySelectorAll('a');
+				menuLinks.forEach(link => {
+					link.addEventListener('click', () => {
+						mobileMenu.classList.add('hidden');
+						menuIcon.classList.remove('hidden');
+						closeIcon.classList.add('hidden');
+						mobileMenuButton.setAttribute('aria-expanded', 'false');
+					});
+				});
+			});
+			</script>
 	</body>
 </html>
 

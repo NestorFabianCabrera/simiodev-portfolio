@@ -1,0 +1,25 @@
+---
+import Social from "./Social.astro";
+---
+
+<main class="pt-36 px-4 flex sm:flex-col lg:flex-row flex-col justify-center gap-2">
+    <div class="presentation mx-5">
+        <h1 class="text-gray-200 text-2xl">Hi, I'm <span class="text-indigo-500">Nestor Cabrera</span></h1>
+        <p class="text-5xl mt-5">Software <br>Developer</p>
+        <div>
+
+            <span class="relative inline-flex overflow-hidden rounded-full p-[1px] mt-6 mb-5 md:mb-5">
+                <span class="absolute inset-[-1000%] animate-[spin_1s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#818CF8_0%,#4F46E5_50%,#818CF8_100%)]"></span> 
+                <div class="inline-flex items-center justify-center w-full px-5 py-2 text-xl text-white/80 rounded-full cursor-pointer bg-gray-800 hover:bg-indigo-700 transition-colors backdrop-blur-3xl whitespace-nowrap">
+                    Work with me!
+                </div> 
+            </span>
+        </div>
+    </div>
+    <div class="description mx-5 mb-8 lg:mt-0 place-self-center">
+        <h2 class="text-2xl text-gray-300 mt-32lg:mt-0">
+            Transforming innovative ideas into seamless digital experiences through cutting-edge <span class="text-indigo-500">frontend</span> development, scalable architectures, and robust <span class="text-indigo-500">DevOps</span> solutions.
+        </h2>
+        <Social/>
+    </div>
+</main>

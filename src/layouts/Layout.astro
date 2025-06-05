@@ -1,7 +1,4 @@
 ---
-import { title } from 'motion/react-client';
-import './src/styles/global.css'
-
 interface Props {
 	title: string;
 }
@@ -72,7 +69,8 @@ interface Props {
 	</body>
 </html>
 
-<style>
+<style is:global>
+	@import '/src/styles/global.css';
 	html,
 	body {
 		margin: 0;
